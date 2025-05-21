@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script>
+    function highlightLink(link) {
+      const links = document.querySelectorAll('.menu a');
+      links.forEach(a => a.classList.remove('active'));
+      link.classList.add('active');
+    }
+  </script>
+</head>
+<body class="sidebar">
+  <div class="menu">
+    <h2><i class="fas fa-list"></i> Menu</h2>
+    <ul>
+      <li><a href="konten.html" target="konten">🏠 Home</a></li>
+      <li><a href="profile.html" target="konten">🧾 Profile</a></li>
+      <li><a href="tugas_1.html" target="konten">📄 Tugas 1</a></li>
+      <li><a href="tugas_2.html" target="konten">📝 Tugas 2</a></li>
+      <li><a href="tugas_3.html" target="konten">📚 Tugas 3</a></li>
+      <li><a href="tugas_4.html" target="konten">📝 Tugas 4</a></li>
+      <li><a href="tugas_5.html" target="konten">✏️ Tugas 5</a></li>
+      <li><a href="tugas_6.html" target="konten">✏️ Tugas 6</a></li>
+    </ul>
+  </div>
+</body>
+</html>

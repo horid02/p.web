@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas 5 - Kalkulator Keuangan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <h1>Tugas 5 - Kalkulator Keuangan</h1>
+    </header>
+
+    <div class="container">
+        <!-- Section 1: Cicilan -->
+        <section class="calculator-card">
+            <h2>1. Cicilan</h2>
+            <div class="input-group">
+                <label for="harga-barang">Harga Barang:</label>
+                <input type="number" id="harga-barang" placeholder="Masukkan harga" required>
+            </div>
+            <div class="input-group">
+                <label for="cicilan-bulan">Besar Cicilan per Bulan:</label>
+                <input type="number" id="cicilan-bulan" placeholder="Masukkan cicilan" required>
+            </div>
+            <div class="input-group">
+                <label for="lama-cicilan">Lama Cicilan (bulan):</label>
+                <input type="number" id="lama-cicilan" placeholder="Masukkan bulan" required>
+            </div>
+            <button onclick="hitungCicilan()">Tampil Cicilan</button>
+            <p id="hasil-cicilan" class="result"></p>
+        </section>
+
+        <!-- Section 2: Diskon Barang -->
+        <section class="calculator-card">
+            <h2>2. Diskon Barang</h2>
+            <div class="input-group">
+                <label for="harga-satuan">Harga Satuan:</label>
+                <input type="number" id="harga-satuan" placeholder="Masukkan harga satuan" required>
+            </div>
+            <div class="input-group">
+                <label for="jumlah-barang">Jumlah Barang:</label>
+                <input type="number" id="jumlah-barang" placeholder="Masukkan jumlah" required>
+            </div>
+            <button onclick="hitungTotal()">Hitung Total</button>
+            <p id="hasil-total" class="result"></p>
+        </section>
+
+        <!-- Section 3: Tabungan Berbunga Majemuk -->
+        <section class="calculator-card">
+            <h2>3. Tabungan Berbunga Majemuk</h2>
+            <div class="input-group">
+                <label for="saldo-awal">Saldo Awal:</label>
+                <input type="number" id="saldo-awal" placeholder="Masukkan saldo" required>
+            </div>
+            <div class="input-group">
+                <label for="bunga">Bunga (% per bulan):</label>
+                <input type="number" id="bunga" placeholder="Masukkan bunga %" step="0.01" required>
+            </div>
+            <div class="input-group">
+                <label for="jangka-waktu">Jangka Waktu (bulan):</label>
+                <input type="number" id="jangka-waktu" placeholder="Masukkan bulan" required>
+            </div>
+            <button onclick="hitungSaldo()">Tampil Saldo</button>
+            <p id="hasil-saldo" class="result"></p>
+        </section>
+
+        <!-- Section 4: Penerimaan Polri Online -->
+        <section class="calculator-card">
+            <h2>4. Penerimaan Polri Online</h2>
+            <div class="input-group">
+                <label>Jenis Kelamin:</label>
+                <div class="radio-group">
+                    <input type="radio" id="pria" name="jenis-kelamin" value="Pria" required>
+                    <label for="pria">Pria</label>
+                    <input type="radio" id="wanita" name="jenis-kelamin" value="Wanita">
+                    <label for="wanita">Wanita</label>
+                </div>
+            </div>
+            <div class="input-group">
+                <label for="tinggi-badan">Tinggi Badan (cm):</label>
+                <input type="number" id="tinggi-badan" placeholder="Masukkan tinggi" required>
+            </div>
+            <div class="input-group">
+                <label for="ipk">IPK:</label>
+                <input type="number" id="ipk" placeholder="Masukkan IPK" step="0.01" required>
+            </div>
+            <div class="input-group">
+                <label>Pendidikan:</label>
+                <select id="pendidikan" required>
+                    <option value="D-III">D-III</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="usia">Usia:</label>
+                <input type="number" id="usia" placeholder="Masukkan usia" required>
+            </div>
+            <button onclick="cekDiterima()">Cek Diterima?</button>
+            <p id="hasil-polri" class="result"></p>
+        </section>
+    </div>
+
+
+    <script>
+        function hitungCicilan() {
+            const harga = parseFloat(document.getElementById('harga-barang').value);
+            const cicilan = parseFloat(document.getElementById('cicilan-bulan').value);
+            const lama = parseInt(document.getElementById('lama-cicilan').value);
+            const total = cicilan * lama;
+            document.getElementById('hasil-cicilan').innerText = `Total Cicilan: ${total.toLocaleString('id-ID')} (Sisa: ${Math.max(0, harga - total).toLocaleString('id-ID')})`;
+        }
+
+        function hitungTotal() {
+            const harga = parseFloat(document.getElementById('harga-satuan').value);
+            const jumlah = parseInt(document.getElementById('jumlah-barang').value);
+            const total = harga * jumlah;
+            document.getElementById('hasil-total').innerText = `Total Harga: ${total.toLocaleString('id-ID')}`;
+        }
+
+        function hitungSaldo() {
+            const saldo = parseFloat(document.getElementById('saldo-awal').value);
+            const bunga = parseFloat(document.getElementById('bunga').value) / 100;
+            const waktu = parseInt(document.getElementById('jangka-waktu').value);
+            const akhir = saldo * Math.pow(1 + bunga, waktu);
+            document.getElementById('hasil-saldo').innerText = `Saldo Akhir: ${akhir.toLocaleString('id-ID')}`;
+        }
+
+        function cekDiterima() {
+            const jenisKelamin = document.querySelector('input[name="jenis-kelamin"]:checked')?.value;
+            const tinggi = parseInt(document.getElementById('tinggi-badan').value);
+            const ipk = parseFloat(document.getElementById('ipk').value);
+            const usia = parseInt(document.getElementById('usia').value);
+
+            let hasil = 'Tidak Diterima';
+            if (jenisKelamin && tinggi && ipk && usia) {
+                const minTinggi = (jenisKelamin === 'Pria') ? 165 : 160;
+                if (tinggi >= minTinggi && ipk >= 2.75 && usia >= 17 && usia <= 22) {
+                    hasil = 'Diterima';
+                }
+            }
+            document.getElementById('hasil-polri').innerText = `Status: ${hasil}`;
+        }
+    </script>
+</body>
+</html>

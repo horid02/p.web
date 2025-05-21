@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Zodiak</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="tugas_6.css">
+</head>
+<body>
+
+    <!-- Konten -->
+    <div class="content">
+        <div class="form-container">
+            <h1>Masukkan Tanggal Lahir</h1>
+            <form onsubmit="hitungZodiak(event)">
+                <div class="input-field">
+                    <label for="tanggal">Tanggal (1-31):</label>
+                    <input type="number" id="tanggal" placeholder="Masukkan tanggal" min="1" max="31" required>
+                </div>
+                <div class="input-field">
+                    <label for="bulan">Bulan:</label>
+                    <select id="bulan" required>
+                        <option value="" disabled selected>Pilih bulan</option>
+                        <option value="1">Januari</option>
+                        <option value="2">Februari</option>
+                        <option value="3">Maret</option>
+                        <option value="4">April</option>
+                        <option value="5">Mei</option>
+                        <option value="6">Juni</option>
+                        <option value="7">Juli</option>
+                        <option value="8">Agustus</option>
+                        <option value="9">September</option>
+                        <option value="10">Oktober</option>
+                        <option value="11">November</option>
+                        <option value="12">Desember</option>
+                    </select>
+                </div>
+                <button type="submit">
+                    <span>Cek Zodiak </span>
+                     <img src="star.png" alt="Ikon Bintang" class="button-icon">
+                </button>
+                <div id="result" class="result" style="display: none;">
+                    <span id="zodiak-text"></span>
+                    <img id="zodiak-icon" src="" alt="Ikon Zodiak" style="display: none;">
+                    <p id="zodiak-desc"></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    </div>
+
+    <script>
+        function hitungZodiak(event) {
+            event.preventDefault();
+            const tanggal = parseInt(document.getElementById('tanggal').value);
+            const bulan = parseInt(document.getElementById('bulan').value);
+            const resultDiv = document.getElementById('result');
+            const zodiakText = document.getElementById('zodiak-text');
+            const zodiakIcon = document.getElementById('zodiak-icon');
+            const zodiakDesc = document.getElementById('zodiak-desc');
+
+            // Validasi jumlah hari per bulan
+            const hariPerBulan = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+            if (isNaN(tanggal) || isNaN(bulan) || tanggal < 1 || tanggal > hariPerBulan[bulan - 1] || bulan < 1 || bulan > 12) {
+                zodiakText.textContent = 'Mohon masukkan tanggal dan bulan yang valid.';
+                zodiakIcon.style.display = 'none';
+                zodiakDesc.textContent = '';
+                resultDiv.style.display = 'block';
+                return;
+            }
+
+            // Logika zodiak dan deskripsi
+            let zodiak = '';
+            let ikonUrl = '';
+            let deskripsi = '';
+            if ((bulan === 3 && tanggal >= 21) || (bulan === 4 && tanggal <= 19)) {
+                zodiak = 'Aries';
+                ikonUrl = 'aries.png';
+                deskripsi = 'Pemberani, energik, dan suka tantangan.';
+            } else if ((bulan === 4 && tanggal >= 20) || (bulan === 5 && tanggal <= 20)) {
+                zodiak = 'Taurus';
+                ikonUrl = 'taurus.png';
+                deskripsi = 'Setia, sabar, dan menyukai kenyamanan.';
+            } else if ((bulan === 5 && tanggal >= 21) || (bulan === 6 && tanggal <= 20)) {
+                zodiak = 'Gemini';
+                ikonUrl = 'gemini.png';
+                deskripsi = 'Pintar, komunikatif, dan suka bersosialisasi.';
+            } else if ((bulan === 6 && tanggal >= 21) || (bulan === 7 && tanggal <= 22)) {
+                zodiak = 'Cancer';
+                ikonUrl = 'cancer.png';
+                deskripsi = 'Penuh perasaan, setia, dan peduli pada keluarga.';
+            } else if ((bulan === 7 && tanggal >= 23) || (bulan === 8 && tanggal <= 22)) {
+                zodiak = 'Leo';
+                ikonUrl = 'leo.png';
+                deskripsi = 'Percaya diri, ambisius, dan suka menjadi pusat perhatian.';
+            } else if ((bulan === 8 && tanggal >= 23) || (bulan === 9 && tanggal <= 22)) {
+                zodiak = 'Virgo';
+                ikonUrl = 'virgo.png';
+                deskripsi = 'Teliti, analitis, dan suka membantu orang lain.';
+            } else if ((bulan === 9 && tanggal >= 23) || (bulan === 10 && tanggal <= 22)) {
+                zodiak = 'Libra';
+                ikonUrl = 'libra.png';
+                deskripsi = 'Adil, harmonis, dan menyukai keindahan.';
+            } else if ((bulan === 10 && tanggal >= 23) || (bulan === 11 && tanggal <= 21)) {
+                zodiak = 'Scorpio';
+                ikonUrl = 'scorpio.png';
+                deskripsi = 'Penuh gairah, misterius, dan sangat setia.';
+            } else if ((bulan === 11 && tanggal >= 22) || (bulan === 12 && tanggal <= 21)) {
+                zodiak = 'Sagittarius';
+                ikonUrl = 'sagittarius.png';
+                deskripsi = 'Petualang, optimis, dan suka kebebasan.';
+            } else if ((bulan === 12 && tanggal >= 22) || (bulan === 1 && tanggal <= 19)) {
+                zodiak = 'Capricorn';
+                ikonUrl = 'capricorn.png';
+                deskripsi = 'Disiplin, ambisius, dan pekerja keras.';
+            } else if ((bulan === 1 && tanggal >= 20) || (bulan === 2 && tanggal <= 18)) {
+                zodiak = 'Aquarius';
+                ikonUrl = 'aquarius.png';
+                deskripsi = 'Kreatif, inovatif, dan berpikiran terbuka.';
+            } else if ((bulan === 2 && tanggal >= 19) || (bulan === 3 && tanggal <= 20)) {
+                zodiak = 'Pisces';
+                ikonUrl = 'pisces.png';
+                deskripsi = 'Penuh empati, imajinatif, dan sensitif.';
+            }
+
+            zodiakText.textContent = `Zodiak Anda adalah: ${zodiak}`;
+            zodiakIcon.src = ikonUrl;
+            zodiakIcon.style.display = 'inline-block';
+            zodiakDesc.textContent = deskripsi;
+            resultDiv.style.display = 'block';
+        }
+    </script>
+</body>
+</html>

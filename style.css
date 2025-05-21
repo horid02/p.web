@@ -1,0 +1,809 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #FAF6E9;
+    color: #333;
+  }
+  
+  /* Header */
+  .header {
+    background-color: #A0C878;
+    color: white;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  body.header h1 {
+    margin: 0;
+    color: #333;
+  }
+  
+  /* Sidebar */
+  body.sidebar {
+    background-color: #A0C878;
+    height: 100vh;
+    overflow: hidden; /* Ini kunci untuk menyembunyikan scrollbar */
+  }
+  
+  
+  .menu h2 {
+    text-align: center;
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .menu ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .menu li {
+    margin-bottom: 10px;
+  }
+  
+  .menu a {
+    display: block;
+    padding: 10px 15px;
+    background-color: #FAF6E9;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #333;
+    transition: all 0.3s ease;
+    font-size: 16px;
+  }
+  
+  .menu a:hover {
+    background-color: #dceac3;
+    transform: translateX(5px);
+  }
+  
+  .menu a.active {
+    background-color: #d4e7b5;
+    font-weight: bold;
+  }
+  
+  /* Animasi masuk */
+  @keyframes slideIn {
+    from { transform: translateX(-100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  
+  /* Konten */
+  body.konten {
+    padding: 20px;
+    background-color: #FAF6E9;
+    box-shadow: inset 0 0 5px #ccc;
+  }
+  
+  /* Footer */
+/* Footer */
+.footer {
+  background: linear-gradient(90deg, #A0C878, #8AB65F);
+  text-align: center;
+  padding: 10px 20px; /* Mengurangi padding bawah untuk menaikkan posisi */
+  color: #FAF6E9;
+  font-size: 14px;
+  margin-top: -20px; /* Menarik footer ke atas agar lebih dekat dengan konten */
+}
+
+.footer p {
+  margin: 0 0 5px 0; /* Mengurangi margin bawah teks */
+}
+
+.footer-images {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  padding: 5px 0; /* Mengurangi padding untuk menaikkan gambar */
+}
+
+.footer-images img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  object-fit: cover;
+  border: 4px solid #FAF6E9;
+}
+
+.footer-images img:hover {
+  transform: scale(1.15) rotate(5deg);
+  box-shadow: 0 0 20px rgba(250, 246, 233, 0.5);
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+  .footer-images img {
+      width: 60px;
+      height: 60px;
+  }
+
+  .footer {
+      padding: 5px 10px; /* Padding lebih kecil pada layar kecil */
+      margin-top: -10px;
+  }
+
+  .footer-images {
+      gap: 15px;
+      padding: 3px 0;
+  }
+}
+ 
+  
+  /* Container Form */
+.form-container {
+    max-width: 500px;
+    margin: 30px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  }
+  
+  /* Judul Form */
+  .form-container h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 1.5rem;
+  }
+  
+  /* Input Field */
+  .input-field {
+    margin-bottom: 20px;
+  }
+  
+  .input-field label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #2c3e50;
+  }
+  
+  .input-field input[type="text"],
+  .input-field textarea,
+  .input-field select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-family: inherit;
+    transition: border-color 0.3s;
+  }
+  
+  .input-field input[type="text"]:focus,
+  .input-field textarea:focus,
+  .input-field select:focus {
+    border-color: #4CAF50;
+    outline: none;
+  }
+  
+  .input-field textarea {
+    resize: vertical;
+    min-height: 80px;
+  }
+  
+  /* Option Group */
+  .option-group {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+  
+  .option {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+  }
+  
+  /* Tombol Submit */
+  button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #3b50df;
+  }
+  
+  /* Responsif */
+  @media (max-width: 480px) {
+    .form-container {
+        padding: 20px;
+    }
+    
+    .option-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+  }
+ 
+  /* profils */
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #FAF6E9;
+    color: #333;
+}
+
+.header {
+    background-color: #A0C878;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 2rem;
+    color: #333;
+}
+
+.container {
+    padding: 30px;
+}
+
+.profiles {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.profile-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    width: 200px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    border: 2px solid #A0C878;
+}
+
+.profile-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.profile-image {
+    position: relative;
+    height: 150px;
+    background: #A0C878;
+}
+
+.profile-image img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 3px solid #FAF6E9;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.profile-info {
+    padding: 20px;
+    text-align: center;
+    background: #FAF6E9;
+}
+
+.profile-info h2 {
+    margin: 0 0 5px 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.profile-info p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Menyembunyikan footer pada halaman dengan class no-footer */
+.tes footer {
+  display: none;
+}
+
+
+
+.footer {
+    background: linear-gradient(90deg, #A0C878, #8AB65F);
+    text-align: center;
+    padding: 10px;
+    color: #FAF6E9;
+    font-size: 0.9rem;
+  
+}
+
+.footer-links {
+    margin-top: 5px;
+}
+
+.footer-links a {
+    color: #FAF6E9;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 0.8rem;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .profiles {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile-card {
+        width: 90%;
+        max-width: 300px;
+    }
+
+    .profile-image img {
+        width: 80px;
+        height: 80px;
+    }
+}  
+/* tugas_5*/
+
+
+.header {
+  background: linear-gradient(90deg, #A0C878, #8AB65F);
+  color: white;
+  text-align: center;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 2em;
+}
+
+.container {
+  flex: 1;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.calculator-card {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.calculator-card:hover {
+  transform: translateY(-5px);
+}
+
+.calculator-card h2 {
+  color: #2c3e50;
+  margin-top: 0;
+  border-bottom: 2px solid #A0C878;
+  padding-bottom: 10px;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  display: block;
+  font-weight: 500;
+  color: #34495e;
+  margin-bottom: 5px;
+}
+
+.input-group input,
+.input-group select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.radio-group {
+  display: flex;
+  gap: 15px;
+}
+
+.radio-group input {
+  margin: 0 5px 0 0;
+}
+
+button {
+  background-color: #A0C878;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #8AB65F;
+}
+
+.result {
+  margin-top: 10px;
+  font-weight: 600;
+  color: #e74c3c;
+}
+
+@media (max-width: 768px) {
+  .container {
+      grid-template-columns: 1fr;
+  }
+
+  .calculator-card {
+      padding: 15px;
+  }
+
+  .header h1 {
+      font-size: 1.5em;
+  }
+}
+
+/* tugas_1*/
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #FAF6E9;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.header {
+    background: linear-gradient(90deg, #A0C878, #8AB65F);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+.container {
+    flex: 1;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.content-card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.content-card:hover {
+    transform: translateY(-5px);
+}
+
+.content-card h2 {
+    color: #2c3e50;
+    margin-top: 0;
+    border-bottom: 2px solid #A0C878;
+    padding-bottom: 10px;
+}
+
+.example {
+    margin-top: 15px;
+}
+
+.example p {
+    margin: 10px 0;
+}
+
+.example a {
+    color: #2980b9;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.example a:hover {
+    color: #1a5276;
+    text-decoration: underline;
+}
+
+.example ul {
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+.example ul ul {
+    padding-left: 20px;
+}
+
+/* Styling untuk LATGAMBAR */
+.image-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-item {
+    text-align: center;
+    width: 100%;
+    max-width: 450px; /* Melebarkan area untuk memberikan ruang lebih bagi hspace */
+}
+
+.image-item p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #555;
+    font-weight: bold;
+}
+
+
+
+
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+
+    .header h1 {
+        font-size: 1.5em;
+    }
+
+    .content-card {
+        padding: 15px;
+    }
+
+    .image-item {
+        max-width: 300px; /* Menyesuaikan lebar pada layar kecil */
+    }
+
+    .image-item img {
+        width: 120px;
+    }
+
+    .hspace-container {
+        padding: 10px 30px; /* Mengurangi padding pada layar kecil */
+    }
+}
+
+/* tugas_2*/
+.content {
+    padding: 20px;
+}
+
+.table-container {
+    max-width: 800px;
+    margin: 30px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    animation: slideIn 0.5s ease-in-out;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+    color: #333;
+}
+
+th {
+    background-color: #A0C878;
+    color: #FAF6E9;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #dceac3;
+}
+
+/* tugas_6*/
+.content {
+    padding: 20px;
+    background: linear-gradient(180deg, #FAF6E9, #e8f5e9);
+    min-height: calc(100vh - 200px);
+}
+
+.form-container {
+    max-width: 500px;
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    border: 3px solid #A0C878;
+    animation: slideIn 0.7s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.form-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #A0C878, #4CAF50);
+}
+
+.input-field {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.input-field label {
+    font-size: 1.1rem;
+    color: #2c3e50;
+    transition: color 0.3s ease;
+}
+
+.input-field input, .input-field select {
+    border: 2px solid #A0C878;
+    border-radius: 8px;
+    padding: 12px;
+    transition: all 0.3s ease;
+}
+
+.input-field input:focus, .input-field select:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.4);
+    transform: scale(1.02);
+}
+
+button {
+    background: linear-gradient(90deg, #4CAF50, #66BB6A);
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+button:hover {
+    background: linear-gradient(90deg, #3b50df, #5c6bc0);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 5px 15px rgba(59, 80, 223, 0.4);
+}
+
+button .button-icon {
+    width: 22px;
+    height: 22px;
+    transition: transform 0.3s ease;
+}
+
+button:hover .button-icon {
+    transform: rotate(20deg);
+}
+
+.result {
+    margin-top: 25px;
+    padding: 20px;
+    background-color: #e8f5e9;
+    border-radius: 10px;
+    color: #2c3e50;
+    font-weight: 600;
+    text-align: center;
+    border: 1px solid #A0C878;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.result img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 3px solid #A0C878;
+    transition: transform 0.3s ease;
+}
+
+.result img:hover {
+    transform: scale(1.1);
+}
+
+.result p {
+    margin: 10px 0 0;
+    font-size: 0.9rem;
+    color: #333;
+    line-height: 1.4;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+    .content {
+        padding: 10px;
+    }
+    .form-container {
+        padding: 20px;
+        margin: 15px;
+        border-width: 2px;
+    }
+    .input-field label {
+        font-size: 1rem;
+    }
+    .input-field input, .input-field select {
+        padding: 10px;
+    }
+    button {
+        padding: 12px;
+        font-size: 1rem;
+    }
+    .result {
+        padding: 15px;
+        font-size: 0.9rem;
+    }
+    .result img {
+        width: 35px;
+        height: 35px;
+    }
+    .result p {
+        font-size: 0.8rem;
+    }
+}

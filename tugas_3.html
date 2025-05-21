@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pendaftaran Anggota</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="tugas_3">
+    <main class="form-container">
+        <h1>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="#3b50df">
+                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+            </svg>
+            Formulir Pendaftaran
+        </h1>
+        
+        <form>
+            <!-- Input Nama -->
+            <div class="input-field">
+                <label for="nama">Nama Lengkap</label>
+                <input type="text" id="nama" placeholder="Nama anda" required>
+            </div>
+            
+            <!-- Input Jenis Kelamin -->
+            <div class="input-field">
+                <label>Jenis Kelamin</label>
+                <div class="option-group">
+                    <label class="option">
+                        <input type="radio" name="gender" checked>
+                        <span>Laki-laki</span>
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="gender">
+                        <span>Perempuan</span>
+                    </label>
+                </div>
+            </div>
+            
+            <!-- Input Agama -->
+            <div class="input-field">
+                <label for="agama">Agama</label>
+                <select id="agama">
+                    <option value="" disabled selected>Pilih agama</option>
+                    <option>Islam</option>
+                    <option>Kristen</option>
+                    <option>Katolik</option>
+                    <option>Hindu</option>
+                    <option>Buddha</option>
+                </select>
+            </div>
+            
+            <!-- Input Hobi -->
+            <div class="input-field">
+                <label>Hobi</label>
+                <div class="option-group">
+                    <label class="option">
+                        <input type="checkbox">
+                        <span>Membaca</span>
+                    </label>
+                    <label class="option">
+                        <input type="checkbox">
+                        <span>Olahraga</span>
+                    </label>
+                    <label class="option">
+                        <input type="checkbox">
+                        <span>Musik</span>
+                    </label>
+                </div>
+            </div>
+            
+            <!-- Input Alamat -->
+            <div class="input-field">
+                <label for="alamat">Alamat</label>
+                <textarea id="alamat" rows="3" placeholder="Alamat lengkap"></textarea>
+            </div>
+            
+            <button type="submit">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
+                    <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                </svg>
+                Kirim Formulir
+            </button>
+        </form>
+    </main>
+</body>
+</html>
