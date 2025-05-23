@@ -807,3 +807,274 @@ button:hover .button-icon {
         font-size: 0.8rem;
     }
 }
+
+/*tugas_7*/
+content {
+    padding: 20px;
+    background: #FAF6E9;
+    min-height: calc(100vh - 200px);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.form-container {
+    max-width: 500px;
+    flex: 1;
+    background: white;
+    padding: 20px;
+    border: 2px solid #A0C878;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.form-container h2 {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 1rem;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.input-group input, .input-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #A0C878;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.input-group input:focus, .input-group select:focus {
+    border-color: #4CAF50;
+    outline: none;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.4);
+}
+
+button {
+    background-color: #A0C878;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #4CAF50;
+}
+
+.result {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #e8f5e9;
+    border: 1px solid #A0C878;
+    border-radius: 5px;
+    color: #2c3e50;
+    font-weight: 600;
+    text-align: center;
+    display: none;
+}
+
+.history {
+    margin-top: 20px;
+}
+
+.history h3 {
+    font-size: 1.2rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.history ul {
+    list-style: none;
+    padding: 0;
+}
+
+.history li {
+    padding: 8px 0;
+    border-bottom: 1px solid #ddd;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.history li:last-child {
+    border-bottom: none;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@media (max-width: 768px) {
+    .content {
+        padding: 10px;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .form-container {
+        padding: 15px;
+        width: 100%;
+        max-width: none;
+    }
+    .form-container h2 {
+        font-size: 1.2rem;
+    }
+    .input-group label {
+        font-size: 0.9rem;
+    }
+    .input-group input, .input-group select {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+    button {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+    .result {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+    .history h3 {
+        font-size: 1rem;
+    }
+    .history li {
+        font-size: 0.8rem;
+    }
+}
+
+
+/*tugas_8*/
+.content {
+    padding: 20px;
+    background: #FAF6E9;
+    min-height: calc(100vh - 200px);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.form-container {
+    max-width: 500px;
+    flex: 1;
+    background: white;
+    padding: 20px;
+    border: 2px solid #A0C878;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.form-container h2 {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 1rem;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #A0C878;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.input-group input:focus {
+    border-color: #4CAF50;
+    outline: none;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.4);
+}
+
+button {
+    background-color: #A0C878;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #4CAF50;
+}
+
+.result {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #e8f5e9;
+    border: 1px solid #A0C878;
+    border-radius: 5px;
+    color: #2c3e50;
+    font-weight: 600;
+    text-align: center;
+    display: none;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@media (max-width: 768px) {
+    .content {
+        padding: 10px;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .form-container {
+        padding: 15px;
+        width: 100%;
+        max-width: none;
+    }
+    .form-container h2 {
+        font-size: 1.2rem;
+    }
+    .input-group label {
+        font-size: 0.9rem;
+    }
+    .input-group input {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+    button {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+    .result {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+}
