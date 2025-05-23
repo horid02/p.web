@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing Online - Tugas 8</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="tugas_8.css">
+</head>
+<body>
+
+    <!-- Konten -->
+    <div class="content">
+        <!-- Form Billing -->
+        <div class="form-container">
+            <h2>Hitung Tagihan</h2>
+            <form onsubmit="hitungTagihan(event)">
+                <div class="input-group">
+                    <label for="layanan">Jenis Layanan:</label>
+                    <select id="layanan" name="layanan" required>
+                        <option value="listrik">Listrik</option>
+                        <option value="air">Air</option>
+                        <option value="internet">Internet</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="penggunaan">Jumlah Penggunaan:</label>
+                    <input type="number" id="penggunaan" name="penggunaan" min="1" required>
+                </div>
+                <div class="input-group">
+                    <label for="satuan">Satuan:</label>
+                    <select id="satuan" name="satuan" required>
+                        <option value="kWh">kWh (Listrik)</option>
+                        <option value="m³">m³ (Air)</option>
+                        <option value="GB">GB (Internet)</option>
+                    </select>
+                </div>
+                <button type="submit">Hitung Tagihan</button>
+                <div id="result-tagihan" class="result"></div>
+            </form>
+        </div>
+    </div>
+
+
+    <script>
+        function hitungTagihan(event) {
+            event.preventDefault();
+            const layanan = document.getElementById('layanan').value;
+            const penggunaan = parseInt(document.getElementById('penggunaan').value);
+            const satuan = document.getElementById('satuan').value;
+            let tarif;
+
+            // Tentukan tarif berdasarkan layanan
+            switch (layanan) {
+                case 'listrik':
+                    tarif = 1500; // Rp1500 per kWh
+                    break;
+                case 'air':
+                    tarif = 5000; // Rp5000 per m³
+                    break;
+                case 'internet':
+                    tarif = 2000; // Rp200 per GB
+                    break;
+            }
+
+            const totalTagihan = penggunaan * tarif;
+            const resultText = `Tagihan ${layanan} (${penggunaan} ${satuan}): Rp${totalTagihan.toLocaleString('id-ID')}`;
+            document.getElementById('result-tagihan').textContent = resultText;
+            document.getElementById('result-tagihan').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
